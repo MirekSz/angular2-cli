@@ -1,0 +1,5 @@
+<h3 *ngIf="operator!=null">
+  details <span  *ngIf="!editMode">{{operator.name}}</span>
+  <input (keypress)="commit($event)" *ngIf="editMode" [(ngModel)]="operator.name"/>
+  <input (click)="changeEditMode()"  type="checkbox"/>
+</h3>
