@@ -1,4 +1,4 @@
-import {Component, OnInit, OnChanges, SimpleChanges, Input} from '@angular/core';
+import {Component, OnInit, OnChanges, SimpleChanges, Input, EventEmitter, Output} from '@angular/core';
 import {Operator, OperatorService} from "../operator.service";
 import {ActivatedRoute} from "@angular/router";
 
@@ -7,7 +7,7 @@ import {ActivatedRoute} from "@angular/router";
   templateUrl: './operator-details.component.html',
   styleUrls: ['./operator-details.component.css']
 })
-export class OperatorDetailsComponent  implements OnInit,OnChanges {
+export class OperatorDetailsComponent implements OnInit,OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     console.log('busS')
   }
@@ -15,6 +15,7 @@ export class OperatorDetailsComponent  implements OnInit,OnChanges {
   @Input()
   operator: Operator;
   editMode: boolean = false;
+  @Output() operationState: EventEmitter<any> = new EventEmitter();
 
   constructor(private operatorService: OperatorService, private router: ActivatedRoute) {
 
@@ -27,6 +28,7 @@ export class OperatorDetailsComponent  implements OnInit,OnChanges {
   commit(event: any) {
     if (event.keyCode == 13)
       this.editMode = false;
+    this.operationState.emit({editionDone:true});
   }
 
 

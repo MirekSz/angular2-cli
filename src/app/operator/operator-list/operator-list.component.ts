@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, EventEmitter} from '@angular/core';
 import {Operator, OperatorService} from "../operator.service";
 
 @Component({
@@ -12,6 +12,10 @@ export class OperatorListComponent implements OnInit {
 
   constructor(private operatorService: OperatorService) {
 
+  }
+
+  handleState(data:any){
+    console.log(data)
   }
 
   ngOnInit(): void {

@@ -2,4 +2,4 @@
 <ul>
   <li *ngFor="let op of operators" (click)="select(op.id)">{{op.name}}({{op.id}})</li>
 </ul>
-<operator-details [operator]="selected"></operator-details><a routerLink="/operators/11">operators</a>
+<operator-details (operationState)="handleState($event)" [operator]="selected"></operator-details><a routerLink="/operators/11">operators</a>

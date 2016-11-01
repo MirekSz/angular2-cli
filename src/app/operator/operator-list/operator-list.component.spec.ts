@@ -19,7 +19,10 @@ describe('Component: OperatorList', () => {
 
   it('should create an instance', () => {
     let component = TestBed.createComponent(OperatorListComponent);
-    component.nativeElement.querySelector()
+    component.componentInstance.operators=[{id:1,name:'mirek'}];
+    component.detectChanges();
+    var querySelector = component.nativeElement.querySelector("ul li");
+    expect(querySelector.textContent).toContain('mirek');
     expect(component).toBeTruthy();
   });
 });
