@@ -6,6 +6,7 @@ import {OperatorService} from "./operator.service";
 import {FormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 import {HttpModule} from "@angular/http";
+import { NamePresenterPipe } from './name-presenter.pipe';
 
 @NgModule({
   imports: [CommonModule, HttpModule, FormsModule,
@@ -23,7 +24,7 @@ import {HttpModule} from "@angular/http";
 
     ])],
   providers: [OperatorService],
-  declarations: [ OperatorDetailsComponent, OperatorListComponent],
+  declarations: [ OperatorDetailsComponent, OperatorListComponent, NamePresenterPipe],
   exports: [OperatorListComponent]
 })
 export class OperatorModule {
